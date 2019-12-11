@@ -1,0 +1,19 @@
+Wysokość na poziomem morza wynosi: 50.0 [m n.p.m.]
+Strefa wiatrowa: 1
+Wysokość dachu nad poziom terenu: 50.0
+Kategoria terenu: 2
+
+
+Wartość podstawowa bazowej prędkości wiatru: 22.0[m/s]
+
+
+Cdir = 1.0[-]
+Cseason = 1.0[-]
+Prędkość bazowa Vb = 1.0 * 1.0 * 22.0[m/s]
+Srednia prędkość wiatru Vm(z) = 28.87441706614533[m/s]
+
+
+Współczynnik chropowatości terenu = 0.05[m]
+intensywność turbulencji = 0.14476482730108395[-]
+Wartość szczytowego ciśnienia wiatru: 0.3025 [kPa]
+Wartość szczytowego ciścnienia prędkości wiatru wynosi: 1.0491233776656983 [kPa]

@@ -2,17 +2,11 @@ package com.benedykt_package;
 
 public class WindPeakValue extends Turbulence{
 
-    WindPeakValue(){
-        A = 0;
-        zone = 1;
-        z = 0;
-        groundCategory = 0;
-    };
+    WindPeakValue(){};
 
     WindPeakValue(double A, int zone, double z, int groundCategory){
         super(A, zone, z, groundCategory);
     };
-
 
     //PRZECIAZONE FUNKCJE
     //wartosc szczytowego cisnienia predkosci wiatru

@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class EurocodeTableVb0 {
 
-    protected double A;
-    protected int zone;
+    private double A;
+    private int zone;
 
     EurocodeTableVb0(double A_, int zone_){
         A = A_;
@@ -18,11 +18,11 @@ public class EurocodeTableVb0 {
     }
 
     public double tellA() {
-        return A;
+        return this.A;
     }
 
     public int tellZone(){
-        return zone;
+        return this.zone;
     }
 
 
@@ -58,5 +58,7 @@ public class EurocodeTableVb0 {
         }
              return vb0;
     }
+
+
 
 }

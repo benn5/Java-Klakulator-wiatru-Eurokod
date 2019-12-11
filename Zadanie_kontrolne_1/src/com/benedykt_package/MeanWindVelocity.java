@@ -3,9 +3,9 @@ package com.benedykt_package;
 public class MeanWindVelocity extends EurocodeTableVb0{
 
     //wysokosc dachu na poziomem terenu
-    protected double z;
+    private double z;
     //kategoria terenu 0-4
-    protected int groundCategory;
+    private int groundCategory;
 
     MeanWindVelocity(){
         z = 0;
@@ -14,18 +14,31 @@ public class MeanWindVelocity extends EurocodeTableVb0{
 
     MeanWindVelocity(double A, int zone, double z_, int groundCategory_){
         super(A, zone);
-        if(z_ < 0) {
-            z = Constants.zmin;
-        } else if(z_ > 200){
-            z = Constants.zmax;
-        }else {
-            z = z_;
-        }
+        z = z_;
         groundCategory = groundCategory_;
     }
 
 
-    EurocodeTableVb0 eurocodeTableVb0 = new EurocodeTableVb0(A, zone);
+    public double tellZ(){
+        return z;
+    }
+
+    public int tellGroundCategory() {
+        return groundCategory;
+    }
+
+    @Override
+    public double tellA() {
+        return super.tellA();
+    }
+
+    @Override
+    public int tellZone() {
+        return super.tellZone();
+    }
+
+
+    EurocodeTableVb0 eurocodeTableVb0 = new EurocodeTableVb0(tellA(), tellZone());
 
 
     //PRZECIAZENIE FUNKCJI
@@ -78,16 +91,4 @@ public class MeanWindVelocity extends EurocodeTableVb0{
         return  vmz;
     }
 
-    public double tellZ(){
-        return z;
-    }
-
-    public double tellGroundCategory() {
-        return groundCategory;
-    }
-
-
-    public double tellA() {
-        return A;
-    }
 }

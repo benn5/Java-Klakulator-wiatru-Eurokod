@@ -4,14 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+
+        /*
         JFrame frame = new JFrame();
         ImageIcon icon = new ImageIcon("src/images/mapaPolski.png");
         JLabel label = new JLabel(icon);
@@ -112,14 +115,15 @@ public class Main {
             }
         }
 
+*/
 
         //Przykładowe dane do usunięcia później
-        /*
-        double A = -100;
-        int zone = 5;
-        double z = 1;
-        int groundCategory = -3;
-         */
+
+        double A = 50;
+        int zone = 1;
+        double z = 50;
+        int groundCategory = 2;
+
 
         //INFORMACJE O BŁĘDNIE WPROWADZONYCH DANYCH - OKIENKA DIALOGOWE
         /*
@@ -147,29 +151,15 @@ public class Main {
         */
 
 
-        //OBLICZENIA
-        EurocodeTableVb0 eurocodeTableVb0 = new EurocodeTableVb0(A, zone);
-        MeanWindVelocity meanWindVelocity = new MeanWindVelocity(A,zone,z, groundCategory);
-        Turbulence turbulence = new Turbulence(A,zone,z,groundCategory);
-        WindPeakValue windPeakValue = new WindPeakValue(A,zone,z,groundCategory);
 
+        //OBLICZENIA PRZEPROWADZANE W MODULA RAPORTU
+        Report report = new Report(A,zone,z,groundCategory);
+        report.openReport();
+        report.addInformation();
+        report.closeReport();
 
-
-        //WYNIKI - DWA MIEJSCA PO PRZECINKU
-        System.out.println("Prędkość bazowa wynosi: " +
-                String.format("%.2f",eurocodeTableVb0.countVb0()) + " [m/s]");
-
-        System.out.println("Srednia prędkość wiatru wynosi: " +
-                String.format("%.2f",meanWindVelocity.vmz()) + " [m/s]");
-
-        System.out.println("Turbulencja wiatru wynosi: " +
-                String.format("%.2f",turbulence.Ivz()) + " [-]");
-
-        System.out.println("Wartość szczytowego ciśnienia wiatru: " +
-                String.format("%.2f",windPeakValue.qb()) + " [kPa]");
-
-        System.out.println("wartość szczytowego ciścnienia prędkości wiatru wynosi: " +
-                String.format("%.2f", windPeakValue.qpz()) + " [kPa]");
+        ProcessBuilder pb = new ProcessBuilder("Notepad.exe", report.tellFileName());
+        pb.start();
 
     }
 }
